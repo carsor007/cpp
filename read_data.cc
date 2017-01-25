@@ -25,8 +25,32 @@ void PrintTableBody()
     /* Loop over the lines in the file reading data. */
     for (int k = 0; k < NUM_LINES; ++k)
     {
-       /*.... process data ...*/
-    }
+       int intValue;
+       double doubleValue;
+       input >> intValue >> doubleValue;
+   /* setw(set width)forces cout to to pad it's output with the right
+   *  number of spaces */
+       cout << setw(COLUMN_WIDTH) << (k + 1) << " | ";
+       cout << setw(COLUMN_WIDTH) << intValue << "|";
+       cout << setw(COLUMN_WIDTH) << doubleValue << endl;
 
+    }
+}
+void PrintTableHeader()
+{
+    /* Print the ---...---+-- pattern for all but the last column. */
+    for (int column = 0; column < NUM_COLUMNS; ++column)
+    {
+        for (int k = 0; k < COLUMN_WIDTH; ++k)
+            cout << '-';
+            cout << "-+-";
+
+    }
+   /* Now print the ---...--- pattern for the last column. */
+   for (int k = 0; k < COLUMN_WIDTH; ++k)
+       cout << '-';
+       cout << endl;
 
 }
+
+ 
